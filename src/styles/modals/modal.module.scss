@@ -1,0 +1,21 @@
+.containerModal {
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    height: auto;
+    max-height: 50rem;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 1.5rem;
+    -webkit-box-shadow: 6px 6px 5px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 5px -6px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 5px -6px rgba(0,0,0,0.75);
+    outline: none;
+
+    h2 {
+        text-align: center;
+    }
+}

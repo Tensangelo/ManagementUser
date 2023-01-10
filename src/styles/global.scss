@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+    // html {
+    //     font-size: 62.5% !important;
+    // }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.containerHome {
+    margin: 10rem auto 0;
+    -webkit-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+    -moz-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+    box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+}
+
+.containerManagmentUser {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px auto 0 auto;
+    max-width: 65rem;
+
+    .containerTable {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        -webkit-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+        -moz-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+        box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+
+        .tableCellHeader {
+            background-color: #067566;
+            color: #ffffff;
+            font-size: 18px;
+
+            @media (max-width: 900px) {
+                font-size: 0.875rem;
+            }
+        }
+
+        .tableCellBody {
+            background-color: #f7f7f7;
+
+            picture {
+                display: flex;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    border-radius: 10rem;
+                }
+            }
+        }
+    }
+}
+
+.panelHeaderTable {
+
+    @media (max-width: 900px) {
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+    }
+}
+
+.toolSearch {
+
+    @media (max-width: 900px) {
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+    }
+
+    .inputToolSearch {
+        @media (max-width: 600px) {
+            width: 20rem;
+        }
+
+        @media (max-width: 425px) {
+            width: 100%;
+        }
+    }
+}
+
+.toolsPagination {
+
+    @media (max-width: 600px) {
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+    }
+
+    .botonsToolsPagination {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+
+        @media (max-width: 425px) {
+            align-items: center;
+            flex-flow: row wrap;
+        }
+    }
+}
+
+.BtnPagination {
+
+    @media (max-width: 425px) {
+        width: 2rem !important;
+    }
+}
+
+.BtnTools {
+    background-color: #067566;
+    color: #ffffff;
+    width: 8rem;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #067566;
+        opacity: .9;
+    }
+}
+
+.BtnModalSave{
+    background-color: #388e3c;
+    color: #ffffff;
+    width: 8rem;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #388e3c;
+        opacity: .9;
+    }
+}
+
+.BtnWarning {
+    background-color: #ff0000;
+    color: #ffffff;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #ff6262;
+        opacity: .9;
+    }
+}
+
+.textAlertForm {
+    color: #ff0000;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+
+.inputViewUser {
+    width: 250px;
+    margin: 20px 20px 10px 20px;
+
+    label {
+        color: #067566;
+        font-weight: bold;
+    }
+    div {
+
+        fieldset {
+            border-color: #067566;
+        }
+    }
+
+    &:hover {
+
+        div {
+            fieldset {
+                border-color: #067566 !important;
+            }
+        }
+    }
+    &:active {
+
+        div {
+            fieldset {
+                border-color: #067566;
+            }
+        }
+    }
+}
