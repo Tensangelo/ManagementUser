@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 // Mui
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,12 +10,6 @@ import Typography from '@mui/material/Typography';
 const Home: NextPage = () => {
     return (
         <>
-            <Head>
-                <title>Administrador de usuarios</title>
-                <meta name="Landing Page" content="Manejo de usuarios" />
-                <link rel="icon" href="/favicon.png" />
-            </Head>
-
             <Card className='containerHome' sx={{ maxWidth: 550  }}>
                 <CardMedia
                     sx={{ height: 240 }}
