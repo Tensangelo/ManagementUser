@@ -33,7 +33,7 @@ const TableUsers = (props: TableUsersProps) => {
     } = props;
 
     return (
-        <TableContainer sx={{ maxHeight: '750px' }}>
+        <TableContainer sx={{ minHeight: '17rem', maxHeight: '750px' }}>
             <Table stickyHeader aria-label='sticky table'>
                 <TableHead>
                     <TableRow>
@@ -61,21 +61,14 @@ const TableUsers = (props: TableUsersProps) => {
 
                                 if (title === 'mr' || title === 'Mr') {
                                     titleSpanish = 'Señor'
-                                } else if (title === 'mrs' || title === 'miss' || title === 'ms' || title === 'Ms') {
+                                } else if (title === 'mrs' || title === 'ms' || title === 'Ms') {
                                     titleSpanish = 'Señora';
+                                } else if (title === 'miss') {
+                                    titleSpanish = 'Señorita';
                                 } else if (title === 'dr' || title === 'Dr') {
-                                    titleSpanish = 'Doctor';
+                                    titleSpanish = 'Doctor(a)';
                                 } else {
                                     titleSpanish = title;
-                                }
-
-                                const isValidUrlImage = (urlImage: string) => {
-                                    try {
-                                        new URL(urlImage)
-                                        return true;
-                                    } catch (error) {
-                                        return false;
-                                    }
                                 }
 
                                 return (
@@ -91,21 +84,12 @@ const TableUsers = (props: TableUsersProps) => {
                                         </TableCell>
                                         <TableCell className='tableCellBody'>
                                             <picture>
-                                                {isValidUrlImage(picture) ? (
-                                                    <Image
-                                                        src={picture}
-                                                        alt='Icon user'
-                                                        width={55}
-                                                        height={55}
-                                                    />
-                                                ) : (
-                                                    <Image
-                                                        src={imageAlternative}
-                                                        alt='Icon user alternative'
-                                                        width={55}
-                                                        height={55}
-                                                    />
-                                                )}
+                                                <Image
+                                                    src={picture}
+                                                    alt='Icon user'
+                                                    width={55}
+                                                    height={55}
+                                                />
                                             </picture>
                                         </TableCell>
                                         <TableCell className='tableCellBody'>

@@ -13,11 +13,16 @@ const LoadingComponent = (props: LoadingProps) => {
             component={typeTag}
             sx={{
                 width: '100%',
+                mt: '5rem',
                 position: 'absolute',
                 top: '0',
                 bottom: '0',
                 right: '0',
-                left: '0'
+                left: '0',
+
+                'button' : {
+                    border: 'none !important',
+                }
             }}
         >
             <LoadingButton

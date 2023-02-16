@@ -5,8 +5,9 @@ import Styles from '@styles/modals/modal.module.scss';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { SxProps } from '@mui/system/styleFunctionSx/styleFunctionSx';
-import { Theme } from '@mui/material/styles/createTheme';
+import Stack from '@mui/material/Stack';
+// Icons
+import CloseIcon from '@mui/icons-material/Close';
 
 type ModalViewUserProps = {
     openModal: boolean;
@@ -14,7 +15,6 @@ type ModalViewUserProps = {
     onClick: MouseEventHandler<HTMLButtonElement>;
     title?: string;
     children?: ReactNode;
-    buttonText?: string;
     classBtn?: string;
 }
 
@@ -25,7 +25,6 @@ const ViewUser = (props: ModalViewUserProps) => {
         onClick,
         title,
         children,
-        buttonText= 'Cerrar',
         classBtn,
     } = props;
 
@@ -35,15 +34,17 @@ const ViewUser = (props: ModalViewUserProps) => {
             onClose={closeModal}
         >
             <Box className={Styles.containerModal}>
+                <Stack display={'flex'} alignItems={'flex-end'} sx={{ width: '100%' }}>
+                    <Button
+                        className={`BtnCloseModal`}
+                        variant="contained"
+                        onClick={onClick}
+                    >
+                        <CloseIcon />
+                    </Button>
+                </Stack>
                 <h2>{title}</h2>
                 {children}
-                <Button
-                    className={`BtnTools ${classBtn}`}
-                    variant="contained"
-                    onClick={onClick}
-                >
-                    {buttonText}
-                </Button>
             </Box>
         </Modal>
     )

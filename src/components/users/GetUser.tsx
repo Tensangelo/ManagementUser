@@ -4,6 +4,7 @@ import LoadingComponent from '@components/tools/Loading';
 // Miu
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Image from 'next/image';
 
 type UserProps = {
     idUser: string;
@@ -17,7 +18,7 @@ interface DataUser {
     gender: string;
     phone: string;
     picture: string;
-    dateOfBirth: string;
+    registerDate: string;
     title: string;
 }
 
@@ -55,20 +56,22 @@ const GetUser = (props: UserProps) => {
         gender,
         phone,
         picture,
-        dateOfBirth,
         title,
+        registerDate
     } = dataUser;
 
-    const DateBirth = new Date(dateOfBirth).toLocaleDateString('es-CO', { year:'numeric', month:'2-digit', day: '2-digit'});
+    const DateCreateUser = new Date(registerDate).toLocaleDateString('es-CO', { year:'numeric', month:'2-digit', day: '2-digit'});
 
     let  titleSpanish;
 
     if (title === 'mr' || title === 'Mr') {
         titleSpanish = 'Señor'
-    } else if (title === 'mrs' || title === 'miss' || title === 'ms' || title === 'Ms') {
+    } else if (title === 'mrs' || title === 'ms' || title === 'Ms') {
         titleSpanish = 'Señora';
+    } else if (title === 'miss') {
+        titleSpanish = 'Señorita';
     } else if (title === 'dr' || title === 'Dr') {
-        titleSpanish = 'Doctor';
+        titleSpanish = 'Doctor(a)';
     } else {
         titleSpanish = title;
     }
@@ -79,11 +82,22 @@ const GetUser = (props: UserProps) => {
                 margin: '30px 0 0 0',
                 display: 'flex',
                 justifyContent: 'space-around',
+                alignItems: 'center',
                 flexFlow: 'row wrap'
             }}
         >
             {!isLoading ? (
                 <>
+                    <Box className='inputViewUserAvatar'>
+                        <picture>
+                            <Image
+                                src={picture}
+                                alt='Icon user'
+                                width={75}
+                                height={75}
+                            />
+                        </picture>
+                    </Box>
                     <TextField
                         className='inputViewUser'
                         label='Titulo'
@@ -134,16 +148,8 @@ const GetUser = (props: UserProps) => {
                     />
                     <TextField
                         className='inputViewUser'
-                        label='Imagen'
-                        defaultValue={picture}
-                        InputProps={{
-                            readOnly: true,
-                        }}
-                    />
-                    <TextField
-                        className='inputViewUser'
-                        label='Fecha de nacimiento (DD-MM-YYYY)'
-                        defaultValue={DateBirth}
+                        label='Fecha creacion del usuario'
+                        defaultValue={DateCreateUser}
                         InputProps={{
                             readOnly: true,
                         }}

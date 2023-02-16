@@ -12,7 +12,6 @@ const nextConfig = {
     domains: [
       'randomuser.me',
       'upload.wikimedia.org',
-      'www.nacion.com',
     ],
   },
 }

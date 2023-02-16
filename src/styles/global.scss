@@ -134,6 +134,17 @@ a {
     }
 }
 
+.BtnCloseModal {
+    background-color: #067566 !important;
+    color: #ffffff !important;
+    width: 4rem !important;
+
+    &:hover {
+        background-color: #067566 !important;
+        opacity: .9 !important;
+    }
+}
+
 .BtnModalSave{
     background-color: #388e3c !important;
     color: #ffffff !important;
@@ -167,6 +178,49 @@ a {
 .inputViewUser {
     width: 250px !important;
     margin: 20px 20px 10px 20px !important;
+
+    label {
+        color: #067566 !important;
+        font-weight: bold !important;
+    }
+    div {
+
+        fieldset {
+            border-color: #067566 !important;
+        }
+    }
+
+    &:hover {
+
+        div {
+            fieldset {
+                border-color: #067566 !important;
+            }
+        }
+    }
+    &:active {
+
+        div {
+            fieldset {
+                border-color: #067566 !important;
+            }
+        }
+    }
+}
+
+.inputViewUserAvatar {
+    width: 250px !important;
+    margin: 20px 20px 10px 20px !important;
+
+    picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            border-radius: 10rem;
+        }
+    }
 
     label {
         color: #067566 !important;

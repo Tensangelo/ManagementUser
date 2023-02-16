@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
+import Image from 'next/image';
 // Components
 import ModalBase from '@components/modals/ModalBase';
 // Mui
@@ -9,6 +10,16 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import InputLabel from '@mui/material/InputLabel';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+// Images
+import AvatarMaleOne from '@images/avatarMale_1.png';
+import AvatarMaleTwo from '@images/avatarMale_2.png';
+import AvatarFemaleOne from '@images/avatarFemale_1.png';
+import AvatarFemaleTwo from '@images/avatarFemale_2.png';
+import AnonimusUser from '@images/userAnonimous.png';
 
 type UserProps = {
     onChange: Function;
@@ -22,7 +33,6 @@ type FormsFields = {
     gender: string;
     phone: string;
     picture: string;
-    dateOfBirth: string;
     title: string;
 };
 
@@ -37,15 +47,27 @@ const CreateUser = (props: UserProps) => {
     const [openModalCreateUser, setOpenModalCreateUser] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<FormsFields>();
     const [ status, setStatus ] = useState<number>();
+    const [ selectTitle, setSelectTitle ] = useState('');
+    const [ selectGender, setSelectGender ] = useState('');
+    const [ selectAvatar, setSelectAvatar ] = useState('');
 
     const [responseData, setResponseData] = useState<ResponseDataApi>();
-
 
     const handleOpenModal = () => {
         setOpenModalCreateUser(true)
     }
     const handleCloseModal = () => {
         setOpenModalCreateUser(false)
+    }
+
+    const handlechangeTitle = (event: SelectChangeEvent) => {
+        setSelectTitle(event.target.value as string)
+    }
+    const handlechangeGender = (event: SelectChangeEvent) => {
+        setSelectGender(event.target.value as string)
+    }
+    const handleChangeAvatar = (event: SelectChangeEvent) => {
+        setSelectAvatar(event.target.value as string)
     }
 
     const { onChange } = props;
@@ -66,6 +88,14 @@ const CreateUser = (props: UserProps) => {
     });
 
     const InfoErrorsAPI = responseData?.data;
+
+    const MenuProps = {
+        PaperProps: {
+            style: {
+                maxHeight: 10*20,
+            },
+        },
+    }
 
     return (
         <Box
@@ -107,20 +137,36 @@ const CreateUser = (props: UserProps) => {
                     )}
                     <form onSubmit={onSubmit}>
                         <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                            <TextField
-                                className='inputViewUser'
-                                label='Titulo'
-                                {...register('title', {
-                                    minLength: {
-                                        value: 2,
-                                        message: 'Minimo 2 caracteres'
-                                    },
-                                    required: {
-                                        value: true,
-                                        message: 'Este campo es obligatorio'
-                                    }
-                                })}
-                            />
+                            <FormControl className='inputViewUser'>
+                                <InputLabel id='InputTitle'>
+                                    Titulo
+                                </InputLabel>
+                                <Select
+                                    value={selectTitle}
+                                    labelId='InputTitle'
+                                    label='Titulo'
+                                    {...register('title', {
+                                        onChange: handlechangeTitle,
+                                        required: {
+                                            value: true,
+                                            message: 'Este campo es obligatorio'
+                                        }
+                                    })}
+                                >
+                                    <MenuItem value='Mr'>
+                                        Señor
+                                    </MenuItem>
+                                    <MenuItem value='mrs'>
+                                        Señora
+                                    </MenuItem>
+                                    <MenuItem value='miss'>
+                                        Señorita
+                                    </MenuItem>
+                                    <MenuItem value='dr'>
+                                        Doctor(a)
+                                    </MenuItem>
+                                </Select>
+                            </FormControl>
                             {errors.title && <p className='textAlertForm'>{errors.title?.message}</p>}
                             {InfoErrorsAPI?.title && <p className='textAlertForm'>{InfoErrorsAPI?.title}</p>}
                         </Stack>
@@ -179,20 +225,30 @@ const CreateUser = (props: UserProps) => {
                             {InfoErrorsAPI?.email && <p className='textAlertForm'>{InfoErrorsAPI?.email}</p>}
                         </Stack>
                         <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                            <TextField
-                                className='inputViewUser'
-                                label='Genero'
-                                {...register('gender', {
-                                    minLength: {
-                                        value: 3,
-                                        message: 'Minimo 3 caracteres'
-                                    },
-                                    required: {
-                                        value: true,
-                                        message: 'Este campo es obligatorio'
-                                    }
-                                })}
-                            />
+                            <FormControl className='inputViewUser'>
+                                <InputLabel id='InputGender'>
+                                    Genero
+                                </InputLabel>
+                                <Select
+                                    value={selectGender}
+                                    labelId='InputGender'
+                                    label='Genero'
+                                    {...register('gender', {
+                                        onChange: handlechangeGender,
+                                        required: {
+                                            value: true,
+                                            message: 'Este campo es obligatorio'
+                                        }
+                                    })}
+                                >
+                                    <MenuItem value='male'>
+                                        Male
+                                    </MenuItem>
+                                    <MenuItem value='female'>
+                                        Female
+                                    </MenuItem>
+                                </Select>
+                            </FormControl>
                             {errors.gender && <p className='textAlertForm'>{errors.gender?.message}</p>}
                             {InfoErrorsAPI?.gender && <p className='textAlertForm'>{InfoErrorsAPI?.gender}</p>}
                         </Stack>
@@ -215,34 +271,87 @@ const CreateUser = (props: UserProps) => {
                             {InfoErrorsAPI?.phone && <p className='textAlertForm'>{InfoErrorsAPI?.phone}</p>}
                         </Stack>
                         <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                            <TextField
-                                className='inputViewUser'
-                                label='Url de imagen'
-                                type='url'
-                                {...register('picture')}
-                            />
+                            <FormControl className='inputViewUserAvatar'>
+                                <InputLabel id='InputAvatar'>
+                                    Avatar
+                                </InputLabel>
+                                <Select
+                                    value={selectAvatar}
+                                    labelId='InputAvatar'
+                                    label='Avatar'
+                                    MenuProps={MenuProps}
+                                    {...register('picture', {
+                                        required: true,
+                                        onChange: handleChangeAvatar,
+                                    })}
+                                >
+                                    <MenuItem value={AvatarMaleOne.src} sx={{ justifyContent: 'center' }}>
+                                        <picture>
+                                            <Image
+                                                src={AvatarMaleOne}
+                                                alt='Avatar Male the rock'
+                                                width={55}
+                                                height={55}
+                                            />
+                                        </picture>
+                                    </MenuItem>
+                                    <MenuItem value={AvatarMaleTwo.src} sx={{ justifyContent: 'center' }}>
+                                        <picture>
+                                            <Image
+                                                src={AvatarMaleTwo}
+                                                alt='Avatar Male Keanu Reeves'
+                                                width={55}
+                                                height={55}
+                                            />
+                                        </picture>
+                                    </MenuItem>
+                                    <MenuItem value={AvatarFemaleOne.src} sx={{ justifyContent: 'center' }}>
+                                        <picture>
+                                            <Image
+                                                src={AvatarFemaleOne}
+                                                alt='Avatar Female'
+                                                width={55}
+                                                height={55}
+                                            />
+                                        </picture>
+                                    </MenuItem>
+                                    <MenuItem value={AvatarFemaleTwo.src} sx={{ justifyContent: 'center' }}>
+                                        <picture>
+                                            <Image
+                                                src={AvatarFemaleTwo}
+                                                alt='Avatar Female'
+                                                width={55}
+                                                height={55}
+                                            />
+                                        </picture>
+                                    </MenuItem>
+                                    <MenuItem value={AnonimusUser.src} sx={{ justifyContent: 'center' }}>
+                                        <picture>
+                                            <Image
+                                                src={AnonimusUser}
+                                                alt='Avatar anonimous'
+                                                width={55}
+                                                height={55}
+                                            />
+                                        </picture>
+                                    </MenuItem>
+                                </Select>
+                            </FormControl>
                             {errors.picture && <p className='textAlertForm'>{errors.picture?.message}</p>}
                             {InfoErrorsAPI?.picture && <p className='textAlertForm'>{InfoErrorsAPI?.picture}</p>}
                         </Stack>
-                        <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                            <TextField
-                                className='inputViewUser'
-                                label='Fecha de nacimiento (DD-MM-YYYY)'
-                                {...register('dateOfBirth')}
-                            />
-                            {errors.dateOfBirth && <p className='textAlertForm'>{errors.dateOfBirth?.message}</p>}
-                            {InfoErrorsAPI?.dateOfBirth && <p className='textAlertForm'>{InfoErrorsAPI?.dateOfBirth}</p>}
+                        <Stack display={'inline-flex'} alignItems='center' sx={{ width: '100%' }}>
+                            <Button
+                                className='BtnModalSave'
+                                color='success'
+                                type='submit'
+                                sx={{
+                                    float: 'right',
+                                }}
+                            >
+                                Guardar
+                            </Button>
                         </Stack>
-                        <Button
-                            className='BtnModalSave'
-                            color='success'
-                            type='submit'
-                            sx={{
-                                float: 'right',
-                            }}
-                        >
-                            Guardar
-                        </Button>
                     </form>
                 </Box>
             </ModalBase>
