@@ -55,7 +55,7 @@ Luego abrir el puerto localhost:3000
     Mejoras a futuro
 </h2>
 
-1. Realizar un consumo de API por medio de NEst.js y Qraphql para mejorar el tiempo de consultas y manipulacion de datos
+1. Realizar un consumo de API por medio de Nest.js y Graphql para mejorar el tiempo de consultas y manipulacion de datos
 2. Mejoras de interfaz
 3. Union a base de datos en postgresSql o mongo DB
 
