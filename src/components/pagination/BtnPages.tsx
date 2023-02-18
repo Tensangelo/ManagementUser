@@ -28,7 +28,7 @@ const BtnPagesComponent = (props: ButtonsPagesProps) => {
     } = props;
 
     return (
-        <Box  className={Styles.botonsToolsPagination}>
+        <Box  className={Styles.buttonsToolsPagination}>
             <Button
                 className={`${StylesBtn.BtnTools} ${Styles.BtnPagination}`}
                 variant='contained'

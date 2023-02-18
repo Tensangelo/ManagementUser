@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 // Styles
-import Styles from '@styles/pagination/limiTPage.module.scss';
+import Styles from '@styles/pagination/limitPage.module.scss';
 
 type LimitPageProps = {
     valueLimit: number;
