@@ -15,6 +15,9 @@ import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 // Icons
 import SearchIcon from '@mui/icons-material/Search';
+// Styles
+import Styles from '@styles/users/getAllUsers.module.scss';
+import StylesBtn from '@styles/buttons/buttons.module.scss';
 
 const AllUsers = () => {
 
@@ -163,45 +166,33 @@ const AllUsers = () => {
     }
 
     return (
-        <Box className='containerManagmentUser'>
+        <Box className={Styles.containerManagmentUser}>
             <ModalBase
                 title='Usuario no encontrado'
                 openModal={openModalAlert}
                 closeModal={handleCloseModal}
                 onClick={handleCloseModal}
             />
-            <Paper
-                className='panelHeaderTable'
-                sx={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent:'flex-end',
-                    alignItems: 'flex-end'
-                }}
-            >
+            <Paper className={Styles.panelHeaderTable}>
                 <CreateUser onChange={RefreshApi} />
-                <Box className='toolSearch'>
+                <Box className={Styles.toolSearch}>
                     <Input
-                        className='inputToolSearch'
+                        className={Styles.inputToolSearch}
                         defaultValue={search}
                         onChange={handleInputSearch}
-                        sx={{
-                            mb: '10px',
-                            width: '30rem'
-                        }}
                         placeholder='Buscar Usuario por Id'
                     />
-                <Button
-                    type='submit'
-                    startIcon={<SearchIcon />}
-                    className='BtnTools'
-                    onClick={handleSearchUser}
-                >
-                    Buscar
-                </Button>
+                    <Button
+                        type='submit'
+                        startIcon={<SearchIcon />}
+                        className={StylesBtn.BtnTools}
+                        onClick={handleSearchUser}
+                    >
+                        Buscar
+                    </Button>
                 </Box>
             </Paper>
-            <Box className='containerTable'>
+            <Box className={Styles.containerTable}>
                 <Paper sx={{ width: '100%' }}>
                     <TableUsers
                         infoUserRow={infoUser}
@@ -210,16 +201,7 @@ const AllUsers = () => {
                         imageAlternative={AnonymousUser}
                         onChangeData={RefreshApi}
                     />
-                    <Box
-                        className='toolsPagination'
-                        display='flex'
-                        justifyContent='space-around'
-                        sx={{
-                            float: 'right',
-                            maxWidth: '100%',
-                            width: '44rem'
-                        }}
-                    >
+                    <Box className={Styles.toolsPagination}>
                         <LimitPageComponent
                             valueLimit={limit}
                             onChange={LimitPage}

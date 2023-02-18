@@ -1,9 +1,12 @@
-import { ChangeEvent, ReactNode } from 'react';
+import { ChangeEvent } from 'react';
 // Material ui
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+// Styles
+import Styles from '@styles/pagination/btnPages.module.scss';
+import StylesBtn from '@styles/buttons/buttons.module.scss';
 
 type ButtonsPagesProps = {
     onClickPrev: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -25,9 +28,9 @@ const BtnPagesComponent = (props: ButtonsPagesProps) => {
     } = props;
 
     return (
-        <Box  className='botonsToolsPagination'>
+        <Box  className={Styles.botonsToolsPagination}>
             <Button
-                className='BtnTools BtnPagination'
+                className={`${StylesBtn.BtnTools} ${Styles.BtnPagination}`}
                 variant='contained'
                 onClick={onClickPrev}
             >
@@ -47,7 +50,7 @@ const BtnPagesComponent = (props: ButtonsPagesProps) => {
                 />
             </Stack>
             <Button
-                className='BtnTools BtnPagination'
+                className={`${StylesBtn.BtnTools} ${Styles.BtnPagination}`}
                 variant='contained'
                 onClick={onClickNext}
             >

@@ -4,11 +4,12 @@ import ModalUser from '@components/modals/ModalBase';
 // Mui
 import { Box, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-
 // Images && icons
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+// Styles
+import Styles from '@styles/buttons/buttons.module.scss';
 
 type contentModalProps = {
     childrenView: ReactNode;
@@ -47,19 +48,19 @@ const BtnActions = (props: contentModalProps) => {
         <>
             <Box>
                 <IconButton
-                    sx={{ color: '#067566' }}
+                    className={Styles.BtnOpenModals}
                     onClick={handleOpenView}
                 >
                     <WysiwygIcon />
                 </IconButton>
                 <IconButton
-                    sx={{ color: '#067566' }}
+                    className={Styles.BtnOpenModals}
                     onClick={handleOpenUpdate}
                 >
                     <EditIcon />
                 </IconButton>
                 <IconButton
-                    sx={{ color: '#067566' }}
+                    className={Styles.BtnOpenModals}
                     onClick={handleOpenDelete}
                 >
                     <DeleteIcon />

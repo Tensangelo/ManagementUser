@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Button from '@mui/material/Button';
+// Styles
+import Styles from '@styles/users/deleteUser.module.scss';
+import StylesBtn from '@styles/buttons/buttons.module.scss';
 
 type UserProps = {
     idUser: string;
@@ -32,14 +35,7 @@ const DeleteUser = (props: UserProps) => {
     }
 
     return (
-        <Box
-            sx={{
-                margin: '30px 0 0 0',
-                display: 'flex',
-                justifyContent: 'space-around',
-                flexFlow: 'row wrap'
-            }}
-        >
+        <Box className={Styles.containerDeleteUser}>
             {status === undefined ? (
                 <Alert sx={{ width: '100%' }} severity="warning" >
                     <AlertTitle>¿Está seguro de eliminar este usuario?</AlertTitle>
@@ -61,7 +57,7 @@ const DeleteUser = (props: UserProps) => {
                 </>
             )}
             <Button
-                className='BtnWarning'
+                className={StylesBtn.BtnWarning}
                 color='success'
                 type='submit'
                 onClick={onDeleteUser}

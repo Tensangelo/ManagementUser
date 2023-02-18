@@ -1,0 +1,62 @@
+.containerManagmentUser {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px auto 0 auto;
+    max-width: 65rem;
+
+    .panelHeaderTable {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        @media (max-width: 900px) {
+            justify-content: space-evenly;
+            flex-flow: row wrap;
+        }
+
+        .toolSearch {
+
+            .inputToolSearch {
+                margin-bottom: 10px;
+                width: 30rem;
+
+                @media (max-width: 600px) {
+                    width: 20rem;
+                }
+
+                @media (max-width: 425px) {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 900px) {
+                display: flex;
+                justify-content: space-evenly;
+                flex-flow: row wrap;
+            }
+        }
+    }
+
+    .containerTable {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        -webkit-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+        -moz-box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+        box-shadow: 2px 6px 16px 0px rgba(189,189,189,1);
+
+        .toolsPagination {
+            display: flex;
+            justify-content: space-around;
+            float: right;
+            max-width: 100%;
+            width: 44rem;
+
+            @media (max-width: 600px) {
+                justify-content: space-evenly;
+                flex-flow: row wrap;
+            }
+        }
+    }
+}

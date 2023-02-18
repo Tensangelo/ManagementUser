@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+// Styles
+import Styles from '@styles/pagination/limiTPage.module.scss';
 
 type LimitPageProps = {
     valueLimit: number;
@@ -14,16 +16,7 @@ const LimitPageComponent = (props: LimitPageProps) => {
     const { valueLimit, onChange } = props;
 
     return (
-        <Paper
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                minWidth: '6rem',
-                margin: '0 5px 0 5px',
-                boxShadow: 'none'
-            }}
-        >
+        <Paper className={Styles.containerLimitPage} >
             <p>Limit: </p>
             <FormControl sx={{ m: 1, minWidth: 70 }} size='small'>
                 <Select

@@ -5,6 +5,9 @@ import LoadingComponent from '@components/tools/Loading';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
+// Styles
+import Styles from '@styles/users/getUser.module.scss';
+import StylesInputs from '@styles/forms/inputs.module.scss';
 
 type UserProps = {
     idUser: string;
@@ -77,18 +80,10 @@ const GetUser = (props: UserProps) => {
     }
 
     return (
-        <Box
-            sx={{
-                margin: '30px 0 0 0',
-                display: 'flex',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                flexFlow: 'row wrap'
-            }}
-        >
+        <Box className={Styles.containerGetUser}>
             {!isLoading ? (
                 <>
-                    <Box className='inputViewUserAvatar'>
+                    <Box className={StylesInputs.inputViewUserAvatar}>
                         <picture>
                             <Image
                                 src={picture}
@@ -99,7 +94,7 @@ const GetUser = (props: UserProps) => {
                         </picture>
                     </Box>
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Titulo'
                         defaultValue={titleSpanish}
                         InputProps={{
@@ -107,7 +102,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Nombres'
                         defaultValue={firstName}
                         InputProps={{
@@ -115,7 +110,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Apellidos'
                         defaultValue={lastName}
                         InputProps={{
@@ -123,7 +118,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Email'
                         defaultValue={email}
                         InputProps={{
@@ -131,7 +126,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Genero'
                         defaultValue={gender}
                         InputProps={{
@@ -139,7 +134,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Telefono'
                         defaultValue={phone}
                         InputProps={{
@@ -147,7 +142,7 @@ const GetUser = (props: UserProps) => {
                         }}
                     />
                     <TextField
-                        className='inputViewUser'
+                        className={StylesInputs.inputViewUser}
                         label='Fecha creacion del usuario'
                         defaultValue={DateCreateUser}
                         InputProps={{

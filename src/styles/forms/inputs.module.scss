@@ -1,0 +1,75 @@
+.inputViewUser {
+    width: 250px;
+    margin: 20px 20px 10px 20px;
+
+    label {
+        color: #067566;
+        font-weight: bold;
+    }
+    div {
+
+        fieldset {
+            border-color: #067566;
+        }
+    }
+
+    &:hover {
+
+        div {
+            fieldset {
+                border-color: #067566;
+            }
+        }
+    }
+    &:active {
+
+        div {
+            fieldset {
+                border-color: #067566;
+            }
+        }
+    }
+}
+
+.inputViewUserAvatar {
+    width: 250px;
+    margin: 20px 20px 10px 20px;
+
+    picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            border-radius: 10rem;
+        }
+    }
+
+    label {
+        color: #067566;
+        font-weight: bold;
+    }
+    div {
+
+        fieldset {
+            border-color: #067566;
+        }
+    }
+
+    &:hover {
+
+        div {
+            fieldset {
+                border-color: #067566;
+            }
+        }
+    }
+    &:active {
+
+        div {
+            fieldset {
+                border-color: #067566;
+            }
+        }
+    }
+}

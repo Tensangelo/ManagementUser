@@ -1,0 +1,38 @@
+.BtnTools {
+    background-color: #067566;
+    color: #ffffff;
+    width: 8rem;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #067566;
+        opacity: .9;
+    }
+}
+
+.BtnModalSave{
+    background-color: #388e3c;
+    color: #ffffff;
+    width: 8rem;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #388e3c;
+        opacity: .9;
+    }
+}
+
+.BtnWarning {
+    background-color: #ff0000;
+    color: #ffffff;
+    margin: 15px 0 10px 15px;
+
+    &:hover {
+        background-color: #ff6262;
+        opacity: .9;
+    }
+}
+
+.BtnOpenModals {
+    color: #067566;
+}

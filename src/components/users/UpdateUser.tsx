@@ -20,6 +20,11 @@ import AvatarMaleTwo from '@images/avatarMale_2.png';
 import AvatarFemaleOne from '@images/avatarFemale_1.png';
 import AvatarFemaleTwo from '@images/avatarFemale_2.png';
 import AnonimusUser from '@images/userAnonimous.png';
+// Styles
+import Styles from '@styles/users/updateUser.module.scss';
+import StylesInputs from '@styles/forms/inputs.module.scss';
+import StylesAlert from '@styles/forms/alerts.module.scss';
+import StylesBtn from '@styles/buttons/buttons.module.scss';
 
 type UserProps = {
     idUser: string;
@@ -122,20 +127,6 @@ const UpdateUser = (props: UserProps) => {
 
     const InfoErrorsAPI = responseData?.data;
 
-    let  titleSpanish;
-
-    if (title === 'mr' || title === 'Mr') {
-        titleSpanish = 'Señor'
-    } else if (title === 'mrs' || title === 'ms' || title === 'Ms') {
-        titleSpanish = 'Señora';
-    } else if (title === 'miss') {
-        titleSpanish = 'Señorita';
-    } else if (title === 'dr' || title === 'Dr') {
-        titleSpanish = 'Doctor(a)';
-    } else {
-        titleSpanish = title;
-    }
-
     const MenuProps = {
         PaperProps: {
             style: {
@@ -145,14 +136,7 @@ const UpdateUser = (props: UserProps) => {
     }
 
     return (
-        <Box
-            sx={{
-                margin: '30px 0 0 0',
-                display: 'flex',
-                justifyContent: 'space-around',
-                flexFlow: 'row wrap'
-            }}
-        >
+        <Box className={Styles.containerUpdateUser}>
             {status !== undefined && (
                 <>
                     {status === 200 ? (
@@ -170,8 +154,8 @@ const UpdateUser = (props: UserProps) => {
             )}
             {!isLoading ? (
                 <form onSubmit={onSubmit}>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                        <FormControl className='inputViewUser'>
+                    <Stack className={Styles.containerInputs}>
+                        <FormControl className={StylesInputs.inputViewUser}>
                             <InputLabel id='InputTitle'>
                                 Titulo
                             </InputLabel>
@@ -187,7 +171,7 @@ const UpdateUser = (props: UserProps) => {
                                     }
                                 })}
                             >
-                                <MenuItem value='Mr'>
+                                <MenuItem value='mr'>
                                     Señor
                                 </MenuItem>
                                 <MenuItem value='mrs'>
@@ -201,12 +185,12 @@ const UpdateUser = (props: UserProps) => {
                                 </MenuItem>
                             </Select>
                         </FormControl>
-                        {errors.title && <p className='textAlertForm'>{errors.title?.message}</p>}
-                        {InfoErrorsAPI?.title && <p className='textAlertForm'>{InfoErrorsAPI?.title}</p>}
+                        {errors.title && <p className={StylesAlert.textAlertForm}>{errors.title?.message}</p>}
+                        {InfoErrorsAPI?.title && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.title}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
+                    <Stack className={Styles.containerInputs}>
                         <TextField
-                            className='inputViewUser'
+                            className={StylesInputs.inputViewUser}
                             label='Nombres'
                             defaultValue={firstName}
                             {...register('firstName', {
@@ -220,12 +204,12 @@ const UpdateUser = (props: UserProps) => {
                                 }
                             })}
                         />
-                        {errors.firstName && <p className='textAlertForm'>{errors.firstName?.message}</p>}
-                        {InfoErrorsAPI?.firstName && <p className='textAlertForm'>{InfoErrorsAPI?.firstName}</p>}
+                        {errors.firstName && <p className={StylesAlert.textAlertForm}>{errors.firstName?.message}</p>}
+                        {InfoErrorsAPI?.firstName && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.firstName}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
+                    <Stack className={Styles.containerInputs}>
                         <TextField
-                            className='inputViewUser'
+                            className={StylesInputs.inputViewUser}
                             label='Apellidos'
                             defaultValue={lastName}
                             {...register('lastName', {
@@ -239,12 +223,12 @@ const UpdateUser = (props: UserProps) => {
                                 }
                             })}
                         />
-                        {errors.lastName && <p className='textAlertForm'>{errors.lastName?.message}</p>}
-                        {InfoErrorsAPI?.lastName && <p className='textAlertForm'>{InfoErrorsAPI?.lastName}</p>}
+                        {errors.lastName && <p className={StylesAlert.textAlertForm}>{errors.lastName?.message}</p>}
+                        {InfoErrorsAPI?.lastName && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.lastName}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
+                    <Stack className={Styles.containerInputs}>
                         <TextField
-                            className='inputViewUser'
+                            className={StylesInputs.inputViewUser}
                             label='Email'
                             defaultValue={email}
                             {...register('email', {
@@ -258,11 +242,11 @@ const UpdateUser = (props: UserProps) => {
                                 }
                             })}
                         />
-                        {errors.email && <p className='textAlertForm'>{errors.email?.message}</p>}
-                        {InfoErrorsAPI?.email && <p className='textAlertForm'>{InfoErrorsAPI?.email}</p>}
+                        {errors.email && <p className={StylesAlert.textAlertForm}>{errors.email?.message}</p>}
+                        {InfoErrorsAPI?.email && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.email}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                        <FormControl className='inputViewUser'>
+                    <Stack className={Styles.containerInputs}>
+                        <FormControl className={StylesInputs.inputViewUser}>
                             <InputLabel id='InputGender'>
                                 Genero
                             </InputLabel>
@@ -279,19 +263,19 @@ const UpdateUser = (props: UserProps) => {
                                 })}
                             >
                                 <MenuItem value='male'>
-                                    Male
+                                    Masculino
                                 </MenuItem>
                                 <MenuItem value='female'>
-                                    Female
+                                    Femenino
                                 </MenuItem>
                             </Select>
                         </FormControl>
-                        {errors.gender && <p className='textAlertForm'>{errors.gender?.message}</p>}
-                        {InfoErrorsAPI?.gender && <p className='textAlertForm'>{InfoErrorsAPI?.gender}</p>}
+                        {errors.gender && <p className={StylesAlert.textAlertForm}>{errors.gender?.message}</p>}
+                        {InfoErrorsAPI?.gender && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.gender}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
+                    <Stack className={Styles.containerInputs}>
                         <TextField
-                            className='inputViewUser'
+                            className={StylesInputs.inputViewUser}
                             label='Telefono'
                             defaultValue={phone}
                             {...register('phone', {
@@ -305,11 +289,11 @@ const UpdateUser = (props: UserProps) => {
                                 }
                             })}
                         />
-                        {errors.phone && <p className='textAlertForm'>{errors.phone?.message}</p>}
-                        {InfoErrorsAPI?.phone && <p className='textAlertForm'>{InfoErrorsAPI?.phone}</p>}
+                        {errors.phone && <p className={StylesAlert.textAlertForm}>{errors.phone?.message}</p>}
+                        {InfoErrorsAPI?.phone && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.phone}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} sx={{ maxWidth: '17rem' }}>
-                        <FormControl className='inputViewUserAvatar'>
+                    <Stack className={Styles.containerInputs}>
+                        <FormControl className={StylesInputs.inputViewUserAvatar}>
                             <InputLabel id='InputAvatar'>
                                 Avatar
                             </InputLabel>
@@ -378,17 +362,14 @@ const UpdateUser = (props: UserProps) => {
                                 </MenuItem>
                             </Select>
                         </FormControl>
-                        {errors.picture && <p className='textAlertForm'>{errors.picture?.message}</p>}
-                        {InfoErrorsAPI?.picture && <p className='textAlertForm'>{InfoErrorsAPI?.picture}</p>}
+                        {errors.picture && <p className={StylesAlert.textAlertForm}>{errors.picture?.message}</p>}
+                        {InfoErrorsAPI?.picture && <p className={StylesAlert.textAlertForm}>{InfoErrorsAPI?.picture}</p>}
                     </Stack>
-                    <Stack display={'inline-flex'} alignItems='center' sx={{ width: '100%' }}>
+                    <Stack className={Styles.containerBtnSave}>
                         <Button
-                            className='BtnModalSave'
+                            className={StylesBtn.BtnModalSave}
                             color='success'
                             type='submit'
-                            sx={{
-                                float: 'right',
-                            }}
                         >
                             Guardar
                         </Button>

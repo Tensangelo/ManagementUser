@@ -14,6 +14,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+// Styles
+import Styles from '@styles/tables/tableUsers.module.scss';
 
 type TableUsersProps = {
     infoUserRow: string[];
@@ -33,7 +35,7 @@ const TableUsers = (props: TableUsersProps) => {
     } = props;
 
     return (
-        <TableContainer sx={{ minHeight: '17rem', maxHeight: '750px' }}>
+        <TableContainer className={Styles.containerTable}>
             <Table stickyHeader aria-label='sticky table'>
                 <TableHead>
                     <TableRow>
@@ -41,17 +43,14 @@ const TableUsers = (props: TableUsersProps) => {
                             const keyDataRow = `${i}${dataRow}`
 
                             return (
-                                <TableCell key={keyDataRow} className='tableCellHeader'>
+                                <TableCell key={keyDataRow} className={Styles.tableCellHeader}>
                                     {dataRow}
                                 </TableCell>
                             )
                         })}
                     </TableRow>
                 </TableHead>
-                <TableBody sx={{
-                    position: 'relative',
-                    height: '10rem'
-                }}>
+                <TableBody className={Styles.tableBody}>
                     {!isLoading ? (
                         <>
                             {dataUser.map((dataUsers: any) => {
@@ -73,16 +72,16 @@ const TableUsers = (props: TableUsersProps) => {
 
                                 return (
                                     <TableRow key={id}>
-                                        <TableCell className='tableCellBody'>
+                                        <TableCell className={Styles.tableCellBody}>
                                             <b>{id}</b>
                                         </TableCell>
-                                        <TableCell className='tableCellBody'>
+                                        <TableCell className={Styles.tableCellBody}>
                                             {titleSpanish}
                                         </TableCell>
-                                        <TableCell className='tableCellBody'>
+                                        <TableCell className={Styles.tableCellBody}>
                                             {`${firstName} ${lastName}`}
                                         </TableCell>
-                                        <TableCell className='tableCellBody'>
+                                        <TableCell className={Styles.tableCellBody}>
                                             <picture>
                                                 <Image
                                                     src={picture}
@@ -92,7 +91,7 @@ const TableUsers = (props: TableUsersProps) => {
                                                 />
                                             </picture>
                                         </TableCell>
-                                        <TableCell className='tableCellBody'>
+                                        <TableCell className={Styles.tableCellBody}>
                                             <BtnActions
                                                 childrenView={<GetUser idUser={id} />}
                                                 childrenUpdate={<UpdateUser idUser={id} />}

@@ -15,7 +15,6 @@ type ModalViewUserProps = {
     onClick: MouseEventHandler<HTMLButtonElement>;
     title?: string;
     children?: ReactNode;
-    classBtn?: string;
 }
 
 const ViewUser = (props: ModalViewUserProps) => {
@@ -25,7 +24,6 @@ const ViewUser = (props: ModalViewUserProps) => {
         onClick,
         title,
         children,
-        classBtn,
     } = props;
 
     return (
@@ -34,9 +32,9 @@ const ViewUser = (props: ModalViewUserProps) => {
             onClose={closeModal}
         >
             <Box className={Styles.containerModal}>
-                <Stack display={'flex'} alignItems={'flex-end'} sx={{ width: '100%' }}>
+                <Stack className={Styles.containerBtnClose}>
                     <Button
-                        className={`BtnCloseModal`}
+                        className={Styles.BtnCloseModal}
                         variant="contained"
                         onClick={onClick}
                     >

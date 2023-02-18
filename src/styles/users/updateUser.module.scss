@@ -1,0 +1,16 @@
+.containerUpdateUser {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+
+.containerInputs {
+    display: inline-flex;
+    max-width: 17rem;
+}
+.containerBtnSave {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
