@@ -1,38 +1,38 @@
 .BtnTools {
-    background-color: #067566;
-    color: #ffffff;
+    background-color: #067566 !important;
+    color: #ffffff !important;
     width: 8rem;
-    margin: 15px 0 10px 15px;
+    margin: 15px 0 10px 15px !important;
 
     &:hover {
-        background-color: #067566;
-        opacity: .9;
+        background-color: #067566 !important;
+        opacity: .9 !important;
     }
 }
 
 .BtnModalSave{
-    background-color: #388e3c;
-    color: #ffffff;
+    background-color: #388e3c !important;
+    color: #ffffff !important;
     width: 8rem;
-    margin: 15px 0 10px 15px;
+    margin: 15px 0 10px 15px !important;
 
     &:hover {
-        background-color: #388e3c;
-        opacity: .9;
+        background-color: #388e3c !important;
+        opacity: .9 !important;
     }
 }
 
 .BtnWarning {
-    background-color: #ff0000;
-    color: #ffffff;
-    margin: 15px 0 10px 15px;
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+    margin: 15px 0 10px 15px !important;
 
     &:hover {
-        background-color: #ff6262;
-        opacity: .9;
+        background-color: #ff6262 !important;
+        opacity: .9 !important;
     }
 }
 
 .BtnOpenModals {
-    color: #067566;
+    color: #067566 !important;
 }
